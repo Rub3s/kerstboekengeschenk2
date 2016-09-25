@@ -1,0 +1,179 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<!--
+<div class="jumbotron">
+    <h1>Kerst-boekengeschenk</h1>
+    <p class="lead">Hieronder kunt u uw 1e, 2e en 3e keuze opgeven voor het kerst-boekengeschenk.</p>
+</div>
+-->
+@using (Html.BeginForm("SaveKeuze", "Boeken"))
+{
+    <input type="hidden" name="keuze1" id="keuze1" />
+    <input type="hidden" name="keuze2" id="keuze2" />
+    <input type="hidden" name="keuze3" id="keuze3" />
+    <div class="panel-body padding-0">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded" style="width: 140px; height: 140px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTc1ZGVmMDIwZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NzVkZWYwMjBmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true">
+                        </div>
+                        <div class="col-md-10">
+                            <h2 class="media-heading">Een of ander boek</h2>
+                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                            <span data-id="1" data-keuze="1" onclick="toggleActive(this)" class="btn btn-default">Keuze 1</span>
+                            <span data-id="1" data-keuze="2" onclick="toggleActive(this)" class="btn btn-default">Keuze 2</span>
+                            <span data-id="1" data-keuze="3" onclick="toggleActive(this)" class="btn btn-default">Keuze 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div id="collapseTwo"  role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded" style="width: 140px; height: 140px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTc1ZGVmMDIwZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NzVkZWYwMjBmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true">
+                        </div>
+                        <div class="col-md-10">
+                            <h2 class="media-heading">Een of ander boek</h2>
+                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                            <span data-id="2" data-keuze="1" onclick="toggleActive(this)" class="btn btn-default">Keuze 1</span>
+                            <span data-id="2" data-keuze="2" onclick="toggleActive(this)" class="btn btn-default">Keuze 2</span>
+                            <span data-id="2" data-keuze="3" onclick="toggleActive(this)" class="btn btn-default">Keuze 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div id="collapseThree"  role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded" style="width: 140px; height: 140px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTc1ZGVmMDIwZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NzVkZWYwMjBmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true">
+                        </div>
+                        <div class="col-md-10">
+                            <h2 class="media-heading">Een of ander boek</h2>
+                            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                            <span data-id="3" data-keuze="1" onclick="toggleActive(this)" class="btn btn-default">Keuze 1</span>
+                            <span data-id="3" data-keuze="2" onclick="toggleActive(this)" class="btn btn-default">Keuze 2</span>
+                            <span data-id="3" data-keuze="3" onclick="toggleActive(this)" class="btn btn-default">Keuze 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">1e keuze</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="radio">
+                        <label><input type="radio" name="keuze1">Option 1</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze1">Option 2</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze1">Option 3</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze1">Option 4</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">2e keuze</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="radio">
+                        <label><input type="radio" name="keuze2">Option 1</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze2">Option 2</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze2">Option 3</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze2">Option 4</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">3e keuze</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="radio">
+                        <label><input type="radio" name="keuze3">Option 1</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze3">Option 2</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze3">Option 3</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="keuze3">Option 4</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="alert alert-danger" role="alert" id="errorDiv" style="display:none">
+    </div>
+    <div class="well text-center">
+        <h2>
+            Vergeet uw keuzes niet op te slaan!
+        </h2>
+        <input type="submit" class="btn btn-primary btn" value="Opslaan" />
+        <div class="clearfix"></div>
+    </div>
+}
+<script>
+    $("form").validate({
+        ignore: "",
+        // Specify validation rules
+        rules: {
+            keuze1: "required",
+            keuze2: "required",
+            keuze3: "required"
+        },
+        // Specify validation error messages
+        messages: {
+            keuze1: "U moet een boek kiezen voor keuze 1!",
+            keuze2: "U moet een boek kiezen voor keuze 2!",
+            keuze3: "U moet een boek kiezen voor keuze 3!"
+        },
+        // Make sure the form is submitted to the destination defined
+        // in the "action" attribute of the form when valid
+        submitHandler: function (form) {
+            form.submit();
+        },
+        invalidHandler: function (event, validator) {
+            $("#errorDiv").show();
+        },
+        errorLabelContainer: "#errorDiv",
+        wrapper: "p"
+    });
+
+    function toggleActive(thisElement)
+    {
+        var keuzeNummer = $(thisElement).attr("data-keuze");
+        $(".btn[data-keuze='" + keuzeNummer + "']").removeClass("active");
+        $(thisElement).siblings().removeClass("active");
+        $(thisElement).addClass("active");
+
+        $("#keuze" + keuzeNummer).val($(thisElement).attr("data-id"));
+    }
+</script>

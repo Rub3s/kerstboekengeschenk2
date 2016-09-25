@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <!--<div class="row">
+        <div class="col-md-12 padding-0">
+            <img  class="col-md-12 padding-0" src="~/Content/boeken2.jpg" />
+        </div>
+    </div>-->
+    <div class="jumbotron" style="background-image:url('/Content/boeken-donker2.jpg');background-size:cover; text-align:center; color:white;">
+        <h1>Kerst-boekengeschenk</h1>
+        <p class="lead">Hieronder kunt u uw 1e, 2e en 3e keuze opgeven voor het kerst-boekengeschenk.</p>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    
+</body>
+</html>
